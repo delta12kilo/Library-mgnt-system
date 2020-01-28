@@ -5,10 +5,12 @@ import new
 
 def menu():
     # return None
-
+    j = []
     with open("test.log","r") as f:
-        s = f.read()
+        s = f.read()        
+        j.append(s)
         print(s.strip('\n'))
+
 
 
 def sear(lys,ele):   
@@ -61,7 +63,7 @@ if __name__ == "__main__":
             with open("check.txt","a")as f:
                 for i in d:
                     f.write(str(i)+'\n')
-            print("done = ",d)
+            # print("done = ",d)
             print(data)
         elif c == n:
             print("ok")
