@@ -22,7 +22,7 @@ def sear(lys,ele):
             inp = input("Type 'yes' to view content: ")
             if inp == 'yes':
                 
-                with open(ele,"rb")as f:
+                with open(ele,"r")as f:
                     det = f.read()
                     print(det.strip('\n'))
             elif inp == 'no':
@@ -56,10 +56,14 @@ if __name__ == "__main__":
 
         if c == y:
             # print("test succ")
+            auth = input("Name of author: ")
             bok = input("enter the name of your book: ")
-            data = new.book(bok)
+            
+            data = new.book(bok,auth)
             d = []
             d.append(bok)
+            d.append(auth)
+
             with open("check.txt","a")as f:
                 for i in d:
                     f.write(str(i)+'\n')
