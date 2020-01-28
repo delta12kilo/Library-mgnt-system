@@ -4,24 +4,29 @@ import new
 
 
 def menu():
-    a = int(input("enter the no. of entry: "))
-    for i in range(a):
-        det = []
-        bid = int(input("enter the bookid: "))
-        bname = input("enter the name: ")
-        det.append(bname)        
-        with open("check.txt","a") as f:
-            for i in det:
-                f.write(str(bid) +'\n')
-                f.write(str(i)+'\n')
-                f.write('--------------\n')                               
-    return det,str(bid),"done"
+    # return None
+
+    with open("test.log","r") as f:
+        s = f.read()
+        print(s.strip('\n'))
+
 
 def sear(lys,ele):   
-    # Binary search #
+    # search #
     for i in range(len(lys)):
         if lys[i] == ele:
+            # with open()
             s = 'Book Found'
+            inp = input("Type 'yes' to view content: ")
+            if inp == 'yes':
+                
+                with open(ele,"rb")as f:
+                    det = f.read()
+                    print(det.strip('\n'))
+            elif inp == 'no':
+                print("thanks")
+            else:
+                print("Wrong Input")
             return s+' = '+ lys[i]
     return "Not Found"
 # def delete():
@@ -35,12 +40,12 @@ if __name__ == "__main__":
     c = int(input("""
     Choose menu:
     1- Write book.
-    2- Enter the book detail.
+    2- View log of book's.
     3- Search the book.
     4- Exit.\n"""))
 
     if c==1:
-        # menu()
+        
         print("write a book")
 
         c = input("Enter 'yes' to write: ")
@@ -48,9 +53,15 @@ if __name__ == "__main__":
         n = 'no'
 
         if c == y:
-            print("test succ")
+            # print("test succ")
             bok = input("enter the name of your book: ")
             data = new.book(bok)
+            d = []
+            d.append(bok)
+            with open("check.txt","a")as f:
+                for i in d:
+                    f.write(str(i)+'\n')
+            print("done = ",d)
             print(data)
         elif c == n:
             print("ok")
@@ -59,6 +70,10 @@ if __name__ == "__main__":
 
   
     elif c==2:
+         
+        menu()
+
+    elif c == 3:
         ele = input("search book by Name = ")
 
         """search function using binary search Algo."""
@@ -69,13 +84,8 @@ if __name__ == "__main__":
         lys = []
         for i in range(len(s)):
             lys.append(s[i].strip('\n'))
-        print(sear(tuple(lys),ele))       
-    elif c == 3:
-        enter  = input("delete the book =  ")
-        # with open("check.txt",'a') as f:
-
-    # elif c == 0:
-
+        print(sear(tuple(lys),ele)) 
+        
              
     else:        
         print(exit())

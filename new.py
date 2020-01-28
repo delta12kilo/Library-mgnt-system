@@ -36,20 +36,3 @@ def book(bok):
     #     logger.info("{file} = {time} ".format(file = bok,time = localtime))
  
     return "Your book has been saved"
-
-# if __name__ == "__main__":
-#     print("write a book")
-
-#     c = input("Enter 'yes' to write: ")
-#     y = 'yes'
-#     n = 'no'
-
-#     if c == y:
-#         print("test succ")
-#         bok = input("enter the name of your book: ")
-#         data = book(bok)
-#         print(data)
-#     elif c == n:
-#         print("ok")
-#     else:
-#         print("Error")
