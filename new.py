@@ -1,5 +1,6 @@
 import logging
 import time
+import os
 
 logging.basicConfig(filename='test.log',level=logging.DEBUG)
 logger = logging.getLogger()
@@ -19,6 +20,7 @@ def book(bok,auth):
         f.write(str(mul))
     localtime = time.asctime( time.localtime(time.time()) )
     logger.info("{file} writen by {auth} = {time} ".format(file = bok,auth = auth, time = localtime))
+    return "Your book has been saved"
 
 
     # There won't be any exception #
@@ -36,4 +38,13 @@ def book(bok,auth):
     #     localtime = time.asctime( time.localtime(time.time()) )
     #     logger.info("{file} = {time} ".format(file = bok,time = localtime))
  
-    return "Your book has been saved"
+def dele(sd):
+    # d = os.remove(sd)
+    # print('the file is deleted ')
+    try:
+        d = os.remove(sd)
+        
+        print("file delete")
+    except OSError as error:
+        print(error)
+        print("File path can not be removed")   

@@ -44,7 +44,8 @@ if __name__ == "__main__":
     1- Write book.
     2- View log of book's.
     3- Search the book.
-    4- Exit.\n"""))
+    4- Delete book.
+    5- Exit.\n"""))
 
     if c==1:
         
@@ -91,8 +92,17 @@ if __name__ == "__main__":
         for i in range(len(s)):
             lys.append(s[i].strip('\n'))
         print(sear(tuple(lys),ele)) 
-        
-             
+
+    elif c == 4:
+        dd = input("do want to delete: ")
+        if dd == 'yes':
+            sd = input("enter the name of book: ")
+            new.dele(sd)
+        elif dd == 'no':
+            print("ok")
+        else:
+            print("!! wrong input !!")
+
     else:        
         print(exit())
         
